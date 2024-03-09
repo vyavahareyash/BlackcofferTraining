@@ -29,11 +29,8 @@ def index(request):
     
 def fetch_weather_and_forecast(city, api_key, current_weather_url, forecast_url):
     response = requests.get(current_weather_url.format(city,api_key)).json()
-    # print(response)
     lat, lon = response['coord']['lat'], response['coord']['lon']
     forecast_response = requests.get(forecast_url.format(lat,lon,api_key)).json()
-    # print(forecast_response)
-    # print(api_key)
     weather_data = {
         "city": city,
         "temperature": round(response['main']['temp'] - 273.15, 2),
@@ -42,13 +39,17 @@ def fetch_weather_and_forecast(city, api_key, current_weather_url, forecast_url)
     }
     
     daily_forecast = []
-    for daily_data in forecast_response['list'][:5]:
+    for i in range(0,len(forecast_response['list']),8):
+        print(len(forecast_response['list']))
+        print(forecast_url.format(lat,lon,api_key))
+        daily_data = forecast_response['list'][i]
         daily_forecast.append({
-            "day": datetime.datetime.fromtimestamp(daily_data['dt']).strftime("%A"),
+            "day": datetime.datetime.utcfromtimestamp(daily_data['dt']).strftime("%A"),
             "min_temp": round(daily_data['main']['temp_min'] - 273.15, 2),
             "max_temp": round(daily_data['main']['temp_max'] - 273.15, 2),
             "description": daily_data['weather'][0]['description'],
             "icon": daily_data['weather'][0]['icon'],
         })
+    print(daily_forecast)
         
     return weather_data, daily_forecast
