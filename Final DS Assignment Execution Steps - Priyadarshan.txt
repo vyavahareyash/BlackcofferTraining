@@ -1,0 +1,118 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Assignment 1:
+
+Terminal 1:
+javac *.java
+
+// compile file one by one server and client
+java MyServer
+
+Terminal 2:
+java MyClient
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+Assignment 2:
+
+Terminal 1:
+javac *.java
+rmic ServerImpl for linux
+
+Terminal 2:
+rmiregistry 
+
+Terminal 3:
+java Server
+
+Terminal 4:
+java Client 127.0.0.1 
+stirng1: abc
+string2 : xyz
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Assignment 3:
+
+Corba String 
+
+Terminal 1:
+idlj -fall ReverseModule.idl
+javac *.java ReverseModule/*.java
+orbd -ORBInitialPort 1056
+
+java ReverseServer -ORBInitialPort 1056
+
+Terminal 2:
+java ReverseClient -ORBInitialPort 1056 -ORBInitialHost localhost
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Assignment 3:
+
+Corba Calculator 
+
+Terminal 1:
+// first paste 3 commands
+
+idlj -fall CalculatorModule.idl
+javac *.java CalculatorModule/*.java
+orbd -ORBInitialPort 1056
+
+// paste on second ter
+java CalculatorServer -ORBInitialPort 1056
+
+Terminal 2:
+// paste on third ter
+java CalculatorClient -ORBInitialPort 1056 -ORBInitialHost localhost
+
+// enter nos then it  will add the nos
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Assignment 4:
+
+Terminal:
+//set jdk bin path in enviornmental veriable : JAVA_HOME
+				    	       C:\Program Files\Java\jdk-8\bin
+
+// set path accordint to your  downloads installer folder
+
+set MPJ_HOME=D:\Yash\IOIT\BE\ds\mpj-v0_44\mpj-v0_44
+set PATH=%MPJ_HOME%\bin;%PATH%
+javac -cp %MPJ_HOME%\lib\mpj.jar ArrSum.java
+%MPJ_HOME%\bin\mpjrun.bat -np 4 ArrSum
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Assignment 5:
+
+Terminal 1:
+python server.py
+
+Terminal 2:
+python client.py
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Assignment 6:
+
+Terminal:
+javac tokenring.java
+java tokenring
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Assignment 7:
+
+Bully
+
+Terminal:
+python bully_ring.py
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Assignment 7:
+Ring
+
+Terminal:
+javac Ring.java
+java Ring
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Assignment 8:
+
+Terminal 1: // Webservices
+npm install
+npm run dev
+
+Terminal 2: // server
+cd server
+npm install
+node index.js
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
